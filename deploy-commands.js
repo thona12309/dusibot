@@ -1,8 +1,7 @@
 import { REST, Routes, SlashCommandBuilder } from "discord.js";
-import config from "./config.json" assert { type: "json" };
+import dotenv from 'dotenv';
 
-const token = config.token;
-const clientId = config.clientId;
+dotenv.config();
 
 const guildId = "1002905414859493426";
 
@@ -13,14 +12,14 @@ const commands = [
     .addStringOption((option) => option.setName("실험체").setDescription("실험체 이름").setRequired(true)),
 ].map((command) => command.toJSON());
 
-const rest = new REST({ version: "10" }).setToken(token);
+const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_BOT_TOKEN);
 
 (async () => {
   try {
     console.log("슬래시 커맨드를 등록하는 중입니다...");
 
     await rest.put(
-      Routes.applicationGuildCommands(clientId, guildId),
+      Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId),
       { body: commands }
     );
 

@@ -1,13 +1,13 @@
 import { Client, Events, GatewayIntentBits } from "discord.js";
 import axios from "axios";
 import cheerio from "cheerio";
+import dotenv from 'dotenv';
 import cron from 'node-cron';
 import { extractJsonArray } from "./utils.js";
-import config from "./config.json" assert { type: "json" };
 import characterObject from "./character.json" assert { type: "json" };
 import traitObject from "./trait.json" assert { type: "json" };
 
-const token = config.token;
+dotenv.config();
 
 function getSkillBuildStats(rawText) {
   const extractedArrayString = extractJsonArray(rawText, '"skillBuildStats":');
@@ -84,4 +84,4 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
-client.login(token);
+client.login(process.env.DISCORD_BOT_TOKEN);
