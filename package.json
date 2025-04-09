@@ -1,0 +1,21 @@
+{
+  "name": "dusibot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@discordjs/rest": "^2.4.3",
+    "axios": "^1.8.4",
+    "cheerio": "1.0.0-rc.12",
+    "discord-api-types": "^0.37.119",
+    "discord.js": "^14.18.0",
+    "node-cron": "^3.0.3"
+  }
+}
