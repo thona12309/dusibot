@@ -60,7 +60,7 @@ client.once(Events.ClientReady, (readyClient) => {
 
   cron.schedule("0 2 * * *", async () => {
     try {
-      const channel = await client.channels.fetch("1002905414859493426");
+      const channel = await client.channels.fetch("1039189198323851354");
       if (!channel || !channel.isTextBased()) return;
 
       channel.send("2시!!!");
